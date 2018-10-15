@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{222CF7F8-C82D-4087-83EE-86417E744CBF}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="DBFilterR250.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DBFilterD250.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DBFilter250.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DBFilterR250">
+        <MSBuild Projects="DBFilterR250.cbproj"/>
+    </Target>
+    <Target Name="DBFilterR250:Clean">
+        <MSBuild Projects="DBFilterR250.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DBFilterR250:Make">
+        <MSBuild Projects="DBFilterR250.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="DBFilterD250">
+        <MSBuild Projects="DBFilterD250.cbproj"/>
+    </Target>
+    <Target Name="DBFilterD250:Clean">
+        <MSBuild Projects="DBFilterD250.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DBFilterD250:Make">
+        <MSBuild Projects="DBFilterD250.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="DBFilter250">
+        <MSBuild Projects="DBFilter250.cbproj"/>
+    </Target>
+    <Target Name="DBFilter250:Clean">
+        <MSBuild Projects="DBFilter250.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DBFilter250:Make">
+        <MSBuild Projects="DBFilter250.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DBFilterR250;DBFilterD250;DBFilter250"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DBFilterR250:Clean;DBFilterD250:Clean;DBFilter250:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DBFilterR250:Make;DBFilterD250:Make;DBFilter250:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
